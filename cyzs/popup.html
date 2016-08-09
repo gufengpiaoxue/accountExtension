@@ -1,0 +1,43 @@
+<html>
+<head>
+<link rel="stylesheet" href="css/style.css">
+<meta charset='utf-8'>
+</head>
+<body>
+	<ul>
+		<li>
+			账号: <input class="normal" id="js_account_id">
+		</li>
+		<li>
+			密码: <input class="normal" id="js_account_pwd" value="123456">
+		</li>
+		<li>
+			<span class="radio">
+				<input type="radio" checked="checked" name="envir" value="apitest"/>内测
+			</span>
+			<span class="radio">
+				<input type="radio" name="envir" value="outertest"/> 外测
+			</span>
+			<span class="radio">
+				<input type="radio" name="envir" value="master"/> 线上
+			</span>
+
+		</li>
+		<li>
+			<input id="js_should_reload" type="checkbox" checked="checked">  登录后刷新页面
+		</li>
+		<li>
+			<button class="login" id="js_login_btn">login</button>
+		</li>
+		<li>
+			<div id="js_qrcode_container">
+				
+			</div>
+		</li>
+		<li class="js_warn warn"></li>
+	</ul>
+	<script type="text/javascript" src='jquery-1.9.1.min.js'></script>
+	<script type="text/javascript" src='js/jquery.qrcode.min.js'></script>
+	<script type="text/javascript" src='js/main.js'></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+   "author": {
+      "name": "陈炳树"
+   },
+   "background": {
+      "scripts": [ "js/background.js" ]
+   },
+   "browser_action": {
+      "default_popup": "popup.html",
+      "default_title": "穿衣助手账号管理"
+   },
+   "content_scripts": [ {
+      "js": [ "js/page.js" ],
+      "matches": [ "http://local.yourdream.cc/*", "http://apitest.yourdream.cc/*", "http://outertest.ichuanyi.com/*", "http://ichuanyi.com/*", "http://local.ichuanyi.com/*", "http://apitest.ichuanyi.com/*" ]
+   } ],
+   "description": "穿衣助手账号管理chrome插件",
+   "icons": {
+      "128": "128.png"
+   },
+   "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAmo/E5FzepvE8m/FDSkdyot1gSIrS8fuHtRN3iTWmmyNU0QxdzR5NF+KDKKJvD6LmT8rKyeAfMTYxOKDfIVTXB7y3AiWObGGSy3B/zynPib5hZh8E09Oh9+YS/1wtrefYwwBwfKWJ+w5ETX8dCQViEofsRJlfYlZxmYo/kMUBD18JTFMFv4BgZ1tb7l6NpJ99FxV1pWElDmi9zG43/gzIK4aM0Hpa2B0TBb88yTCPxhr2l6ib3nWraEpCkDTpoxCjwTDDOJi/WESrOVCD8U9vs3IDmc+8m0zl7bJogZE7n6sDhKRjOFfWNGwd451tQ7bg8A+/KAU5PZXkusVLUcBf7wIDAQAB",
+   "manifest_version": 2,
+   "name": "穿衣助手账号管理",
+   "permissions": [ "*://*.yourdream.cc/*", "*://*.ichuanyi.com/*", "tabs", "cookies" ],
+   "update_url": "https://clients2.google.com/service/update2/crx",
+   "version": "1.5"
+}
