@@ -31,6 +31,25 @@ var account = {
 				}
 			}
 		});
+
+		$("#js_grab_tb").bind('click',function() {
+			var envir = $(".radio input[type='radio']:checked").val();
+			var baseUrl = that.ENVIR_PARAMS[envir].url;
+			chrome.tabs.getSelected(null, function(tab) {
+				var currentTabUrl = tab.url,platform;
+				if(currentTabUrl.indexOf('taobao') > -1){
+					platform = '1';
+				}else if(currentTabUrl.indexOf('tmall') > -1){
+					platform = '2';
+				}
+				if(platform){
+					var id = that.getQueryString(currentTabUrl,'id');
+					chrome.tabs.create({
+						url:baseUrl+'/admin.php?method=shoppingguide.doAddGoods?thirdPartyGoodsId='+id+'&platform='+platform
+					});
+				}
+			});
+		});
 	},
 
 	sendLoginRequest:function(baseUrl,envir,id,pwd){
@@ -75,6 +94,12 @@ var account = {
 	            text : arrayOfTabs[0].url
 	        }); 
 		});
+	},
+	getQueryString:function(url,name) {
+		var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+		var r = url.substr(1).match(reg);
+		if (r != null) return unescape(r[2]);
+		return null;
 	}
 }
 
