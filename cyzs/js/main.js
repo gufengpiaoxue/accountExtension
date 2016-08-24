@@ -46,11 +46,12 @@ var account = {
 				}
 				if(platform){
 					var id = that.getQueryString(currentTabUrl,'id');
-					var url = baseUrl+'/admin.php?method=shoppingguide.doAddGoods?thirdPartyGoodsId='+id+'&platform='+platform;
-					var img = new Image();
-					img.src = url;
-					$(".js_imgWrap").html(img);
-					$(".js_warn").show().html('ID: '+id+'  添加成功');
+					var url = baseUrl+'/admin.php?method=shoppingguide.doAddGoods&thirdPartyGoodsId='+id+'&platform='+platform;
+					that.DoSaveTaoBaoId(url,id);
+					// var img = new Image();
+					// img.src = url;
+					// $(".js_imgWrap").html(img);
+					// $(".js_warn").show().html('ID: '+id+'  添加成功');
 					// alert("success ::  "+id);
 				}
 			});
@@ -79,6 +80,43 @@ var account = {
 	        }
 	    }
 	    xhr.send();
+	},
+
+	DoSaveTaoBaoId:function(url,id){
+		var that = this;
+		var url = url;
+		$.ajax({
+			url:url,
+			dataType:"json",
+			success:function(data) {				
+				if(data.result>0) {
+ 					$(".js_warn").show().html('【 添加失败 】'+data.msg.message);
+				} else {
+					 $(".js_warn").show().html('【 添加成功 】商品ID:::'+id);
+				}
+			},
+			Error:function(data) {
+				$(".js_warn").show().html('【 添加失败 】 ');
+			}
+		})
+		// var xhr = new XMLHttpRequest();
+	 //    xhr.open("GET", url, true);
+	 //    xhr.onreadystatechange = function() {
+	 //        if (xhr.readyState == 4) {
+	 //        	if(xhr.status == 200){
+	 //        		var opt = {
+		// 				msg:"LOGIN_REQUEST_SUCCESS"
+	 //        		};
+	 //        		if(shouldReload){
+	 //        			opt.envir = envir;
+	 //        		}
+		// 			chrome.runtime.sendMessage(opt,{}, function (){
+		// 				window.close();
+		// 			})
+	 //        	}
+	 //        }
+	 //    }
+	 //    xhr.send();
 	},
 
 	getCurrentTabid:function (argument) {
