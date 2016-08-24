@@ -41,12 +41,17 @@ var account = {
 					platform = '1';
 				}else if(currentTabUrl.indexOf('tmall') > -1){
 					platform = '2';
+				} else {
+					alert("URL Error")	
 				}
 				if(platform){
 					var id = that.getQueryString(currentTabUrl,'id');
-					chrome.tabs.create({
-						url:baseUrl+'/admin.php?method=shoppingguide.doAddGoods?thirdPartyGoodsId='+id+'&platform='+platform
-					});
+					var url = baseUrl+'/admin.php?method=shoppingguide.doAddGoods?thirdPartyGoodsId='+id+'&platform='+platform;
+					var img = new Image();
+					img.src = url;
+					$(".js_imgWrap").html(img);
+					$(".js_warn").show().html('ID: '+id+'  添加成功');
+					// alert("success ::  "+id);
 				}
 			});
 		});
