@@ -18,16 +18,19 @@
 		border-radius: 10px;
 		width: 138px;
 	}
-	.login{
+	.login,.grab-btn{
 		background-color: #c697f3;
 		margin: 0 auto;
 		border: none;
 		border-radius: 10px;
 		color: #fff;
-	    width: 180px;
-    	height: 35px;
+		width: 180px;
+		height: 35px;
 		outline: none;
 		cursor: pointer;
+	}
+	.login:hover,.grab-btn:hover{
+		background-color: #d075ea;
 	}
 	.radio{
 		margin-right: 5px;
