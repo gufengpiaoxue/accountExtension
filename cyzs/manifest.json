@@ -22,5 +22,5 @@
    "name": "穿衣助手账号管理",
    "permissions": [ "*://*.yourdream.cc/*", "*://*.ichuanyi.com/*", "tabs", "cookies" ],
    "update_url": "https://clients2.google.com/service/update2/crx",
-   "version": "1.5"
+   "version": "1.6"
 }
